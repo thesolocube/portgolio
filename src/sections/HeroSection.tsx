@@ -19,6 +19,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCV }) => {
       {/* Background Interactive Architecture Canvas */}
       <ArchitectureCanvas />
 
+      {/* Professional Cutout Background Portrait Overlay */}
+      <div className="absolute right-0 bottom-0 top-12 w-full lg:w-1/2 pointer-events-none opacity-20 dark:opacity-25 light:opacity-10 mix-blend-luminosity flex items-end justify-center lg:justify-end z-0">
+        <img
+          src="/sami-portrait.jpg"
+          alt="Sami Rahni Background Cutout"
+          className="h-[85%] max-h-[750px] object-contain object-bottom filter drop-shadow-[0_0_35px_rgba(56,189,248,0.25)] mask-radial-gradient"
+        />
+      </div>
+
       {/* Radial Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-dark-bg/60 to-dark-bg pointer-events-none" />
 
