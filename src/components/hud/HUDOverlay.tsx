@@ -111,7 +111,7 @@ export const HUDOverlay: React.FC<HUDOverlayProps> = ({
         {/* Right Badge */}
         <div className="hidden md:flex items-center gap-1 text-[10px] text-slate-400 pl-2 border-l border-slate-800/80">
           <Sparkles className="w-3 h-3 text-purple-400" />
-          <span>Jesse Zhou Inspired</span>
+          <span>Sami Rahni OS</span>
         </div>
       </motion.div>
     </div>

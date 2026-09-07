@@ -114,7 +114,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onStart }) => {
 
           {/* Footer Specs */}
           <div className="pt-4 border-t border-slate-900 text-[10px] text-slate-500 flex justify-between">
-            <span>Jesse Zhou Inspired Engine</span>
+            <span>Sami Rahni Engineering Core</span>
             <span className="text-sky-400">EMSI Master 1</span>
           </div>
         </div>
