@@ -10,58 +10,13 @@ interface CVModalProps {
 
 export const CVModal: React.FC<CVModalProps> = ({ isOpen, onClose }) => {
   const handleDownload = () => {
-    // Generate clean text-based CV Blob for instant download
-    const cvText = `
-====================================================================
-SAMI RAHNI - SOFTWARE ENGINEER & FULL-STACK DEVELOPER
-====================================================================
-Email: ${PERSONAL_INFO.contactEmail}
-LinkedIn: ${PERSONAL_INFO.linkedinUrl}
-Location: ${PERSONAL_INFO.location}
-
-PROFIL & SPECIALITE
-${PERSONAL_INFO.aboutText}
-
-EXPERIENCES PROFESSIONNELLES
---------------------------------------------------------------------
-${EXPERIENCES.map(
-  (exp) => `
-* ${exp.role} - ${exp.company} (${exp.period})
-  ${exp.description}
-  Réalisations:
-  ${exp.highlights.map((h) => `  - ${h}`).join('\n')}
-`
-).join('\n')}
-
-FORMATION
---------------------------------------------------------------------
-${EDUCATION.map(
-  (edu) => `
-* ${edu.degree} - ${edu.institution} (${edu.period})
-  ${edu.currentStatus || ''}
-`
-).join('\n')}
-
-CERTIFICATIONS & SCORES
---------------------------------------------------------------------
-${CERTIFICATIONS.map((cert) => `* ${cert.institution}: ${cert.title} (${cert.score})`).join('\n')}
-
-LANGUES
-* Arabe: Langue maternelle
-* Français: Bilingue
-* Anglais: Compétence professionnelle
-====================================================================
-`;
-
-    const blob = new Blob([cvText], { type: 'text/plain;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
-    link.href = url;
-    link.download = 'Sami_Rahni_CV.txt';
+    link.href = '/cvsamirahni1.pdf';
+    link.download = 'cvsamirahni1.pdf';
+    link.target = '_blank';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    URL.revokeObjectURL(url);
   };
 
   return (
