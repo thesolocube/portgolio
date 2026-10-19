@@ -36,13 +36,21 @@ export const AppContent: React.FC = () => {
       {/* Main Content Sections */}
       <main id="main-content">
         <HeroSection onOpenCV={() => setIsCVOpen(true)} />
+        <div className="section-divider" />
         <AboutSection />
+        <div className="section-divider" />
         <ExperienceSection />
+        <div className="section-divider" />
         <ProjectsSection />
+        <div className="section-divider" />
         <SkillsSection />
+        <div className="section-divider" />
         <EducationSection />
+        <div className="section-divider" />
         <CertificationsSection />
+        <div className="section-divider" />
         <LanguagesSection />
+        <div className="section-divider" />
         <ContactSection />
       </main>
 

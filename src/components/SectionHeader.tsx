@@ -16,27 +16,45 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
 }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className={`mb-12 ${centered ? 'text-center' : 'text-left'}`}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className={`mb-14 relative ${centered ? 'text-center' : 'text-left'}`}
     >
+      {/* Decorative background glow behind badge */}
+      {centered && (
+        <div className="absolute left-1/2 -top-6 -translate-x-1/2 w-48 h-12 bg-sky-500/10 blur-2xl rounded-full pointer-events-none" />
+      )}
+
+      {/* Pill Badge */}
       <div
-        className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 dark:bg-sky-500/10 light:bg-sky-100 text-sky-400 dark:text-sky-400 light:text-sky-700 border border-sky-500/20 dark:border-sky-500/20 light:border-sky-300 text-xs font-mono font-medium tracking-wide uppercase mb-3 ${
+        className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-sky-500/30 text-sky-400 text-xs font-mono font-semibold tracking-wider uppercase mb-4 shadow-lg shadow-sky-500/5 backdrop-blur-md ${
           centered ? 'mx-auto' : ''
         }`}
       >
-        <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-ping" />
-        {badge}
+        <span className="relative flex h-2 w-2">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75" />
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-400" />
+        </span>
+        <span>{badge}</span>
       </div>
 
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-100 dark:text-slate-100 light:text-slate-900 tracking-tight">
+      {/* Main Title */}
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-100 tracking-tight leading-tight">
         {title}
       </h2>
 
+      {/* Gradient divider line */}
+      <div
+        className={`mt-4 h-[2px] w-24 bg-gradient-to-r from-transparent via-sky-400 to-transparent ${
+          centered ? 'mx-auto' : ''
+        }`}
+      />
+
+      {/* Subtitle */}
       {subtitle && (
-        <p className="mt-3 text-base sm:text-lg text-slate-400 dark:text-slate-400 light:text-slate-600 max-w-2xl mx-auto font-sans leading-relaxed">
+        <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-2xl mx-auto font-sans leading-relaxed">
           {subtitle}
         </p>
       )}

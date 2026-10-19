@@ -20,6 +20,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenCV }
     { name: 'Skills', href: '#skills' },
     { name: 'Education', href: '#education' },
     { name: 'Certifications', href: '#certifications' },
+    { name: 'Languages', href: '#languages' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -32,7 +33,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenCV }
       }
 
       // Active section highlighting
-      const sections = ['hero', 'about', 'experience', 'projects', 'skills', 'education', 'certifications', 'contact'];
+      const sections = ['hero', 'about', 'experience', 'projects', 'skills', 'education', 'certifications', 'languages', 'contact'];
       const scrollPosition = window.scrollY + 200;
 
       for (const sectionId of sections) {

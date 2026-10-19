@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, User, Briefcase, FolderGit2, Cpu, GraduationCap, Award, Mail, Sun, Moon, Copy, Check, ExternalLink } from 'lucide-react';
+import { Search, User, Briefcase, FolderGit2, Cpu, GraduationCap, Award, Mail, Sun, Moon, Copy, Check, ExternalLink, Globe } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
@@ -13,9 +13,8 @@ interface CommandPaletteProps {
 export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onOpenCV }) => {
   const [query, setQuery] = useState('');
   const [copied, setCopied] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const { theme, toggleTheme } = useTheme();
-
-  if (!isOpen) return null;
 
   const actions = [
     {
@@ -79,22 +78,22 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       },
     },
     {
+      id: 'languages',
+      label: 'Go to Languages',
+      category: 'Navigation',
+      icon: Globe,
+      action: () => {
+        document.getElementById('languages')?.scrollIntoView({ behavior: 'smooth' });
+        onClose();
+      },
+    },
+    {
       id: 'contact',
       label: 'Go to Contact Form',
       category: 'Navigation',
       icon: Mail,
       action: () => {
         document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-        onClose();
-      },
-    },
-    {
-      id: 'theme',
-      label: `Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`,
-      category: 'Preferences',
-      icon: theme === 'dark' ? Sun : Moon,
-      action: () => {
-        toggleTheme();
         onClose();
       },
     },
@@ -117,6 +116,16 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
         navigator.clipboard.writeText(PERSONAL_INFO.contactEmail);
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
+      },
+    },
+    {
+      id: 'theme',
+      label: `Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`,
+      category: 'Preferences',
+      icon: theme === 'dark' ? Sun : Moon,
+      action: () => {
+        toggleTheme();
+        onClose();
       },
     },
     {
@@ -147,6 +156,32 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
       item.category.toLowerCase().includes(query.toLowerCase())
   );
 
+  useEffect(() => {
+    setSelectedIndex(0);
+  }, [query]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        setSelectedIndex((prev) => (prev + 1) % (filteredActions.length || 1));
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        setSelectedIndex((prev) => (prev - 1 + filteredActions.length) % (filteredActions.length || 1));
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (filteredActions[selectedIndex]) {
+          filteredActions[selectedIndex].action();
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, filteredActions, selectedIndex]);
+
+  if (!isOpen) return null;
+
   return (
     <AnimatePresence>
       <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4">
@@ -164,16 +199,16 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
           initial={{ opacity: 0, scale: 0.95, y: -10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: -10 }}
-          className="relative w-full max-w-xl bg-slate-900 border border-slate-700/80 rounded-xl shadow-2xl overflow-hidden z-10"
+          className="relative w-full max-w-xl glass rounded-2xl border border-slate-700/80 shadow-2xl overflow-hidden z-10"
         >
           {/* Input field */}
-          <div className="flex items-center px-4 border-b border-slate-800 bg-slate-950/40">
-            <Search className="w-4 h-4 text-slate-400 mr-3 shrink-0" />
+          <div className="flex items-center px-4 border-b border-slate-800 bg-slate-950/60">
+            <Search className="w-4 h-4 text-sky-400 mr-3 shrink-0" />
             <input
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Type a command or search section..."
+              placeholder="Type a command or jump to section..."
               autoFocus
               className="w-full py-4 bg-transparent text-slate-100 placeholder-slate-500 text-sm focus:outline-none font-sans"
             />
@@ -186,19 +221,29 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
           <div className="max-h-80 overflow-y-auto p-2 space-y-1">
             {filteredActions.length === 0 ? (
               <div className="p-6 text-center text-xs font-mono text-slate-500">
-                No matching actions found for "{query}"
+                No matching actions found for &quot;{query}&quot;
               </div>
             ) : (
-              filteredActions.map((item) => {
+              filteredActions.map((item, index) => {
                 const IconComponent = item.icon;
+                const isSelected = index === selectedIndex;
                 return (
                   <button
                     key={item.id}
                     onClick={item.action}
-                    className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-lg hover:bg-slate-800/80 text-slate-200 text-xs text-left transition group font-sans"
+                    onMouseEnter={() => setSelectedIndex(index)}
+                    className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs text-left transition-all group font-sans ${
+                      isSelected
+                        ? 'bg-sky-500/15 text-slate-100 border border-sky-500/30'
+                        : 'text-slate-300 hover:bg-slate-800/60 border border-transparent'
+                    }`}
                   >
                     <div className="flex items-center gap-3">
-                      <div className="p-1.5 rounded-md bg-slate-800 text-sky-400 group-hover:bg-sky-500 group-hover:text-slate-950 transition">
+                      <div className={`p-1.5 rounded-lg transition-colors ${
+                        isSelected
+                          ? 'bg-sky-500 text-slate-950'
+                          : 'bg-slate-800 text-sky-400 group-hover:bg-sky-500 group-hover:text-slate-950'
+                      }`}>
                         <IconComponent className="w-4 h-4" />
                       </div>
                       <span className="font-medium group-hover:text-sky-300 transition">
@@ -221,11 +266,11 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose,
           </div>
 
           {/* Footer tip */}
-          <div className="px-4 py-2 bg-slate-950/60 border-t border-slate-800 text-[11px] font-mono text-slate-500 flex justify-between items-center">
+          <div className="px-4 py-2.5 bg-slate-950/80 border-t border-slate-800 text-[11px] font-mono text-slate-500 flex justify-between items-center">
             <span>
-              Tip: Use <kbd className="text-slate-300">Cmd+K</kbd> or <kbd className="text-slate-300">Ctrl+K</kbd> anywhere
+              Use <kbd className="text-slate-300">↑↓</kbd> to navigate, <kbd className="text-slate-300">Enter</kbd> to select
             </span>
-            <span>Sami Rahni Portfolio</span>
+            <span className="text-sky-400">Sami Rahni · Portfolio</span>
           </div>
         </motion.div>
       </div>
