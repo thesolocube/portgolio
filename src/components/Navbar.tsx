@@ -90,13 +90,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenCommandPalette, onOpenCV }
               <a
                 key={link.name}
                 href={link.href}
-                className={`px-3 py-1 text-xs font-medium rounded-full transition-all duration-200 ${
+                className={`relative px-3 py-1 text-xs font-medium rounded-full transition-all duration-200 ${
                   isActive
-                    ? 'bg-sky-500/15 text-sky-400 dark:text-sky-400 light:text-sky-600 font-semibold'
-                    : 'text-slate-400 dark:text-slate-400 light:text-slate-600 hover:text-slate-200 dark:hover:text-slate-200 light:hover:text-slate-900'
+                    ? 'bg-sky-500/15 text-sky-400 dark:text-sky-400 font-semibold'
+                    : 'text-slate-400 dark:text-slate-400 hover:text-slate-200 dark:hover:text-slate-200'
                 }`}
               >
                 {link.name}
+                {isActive && (
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-sky-400" />
+                )}
               </a>
             );
           })}

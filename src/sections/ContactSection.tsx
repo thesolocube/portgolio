@@ -39,12 +39,22 @@ export const ContactSection: React.FC = () => {
     setStatus('loading');
     setErrorMessage('');
 
-    // Simulate Network API Call / Email sending
+    // Build mailto: link with pre-filled form data
+    const subject = encodeURIComponent(
+      formData.subject || `Message de ${formData.name} via Portfolio`
+    );
+    const body = encodeURIComponent(
+      `Nom: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
+    );
+    const mailtoLink = `mailto:${PERSONAL_INFO.contactEmail}?subject=${subject}&body=${body}`;
+
+    // Small delay for UX feedback, then open mailto
     setTimeout(() => {
+      window.location.href = mailtoLink;
       setStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setStatus('idle'), 5000);
-    }, 1200);
+      setTimeout(() => setStatus('idle'), 6000);
+    }, 600);
   };
 
   return (
@@ -214,7 +224,7 @@ export const ContactSection: React.FC = () => {
               {status === 'success' && (
                 <div className="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 shrink-0" />
-                  <span>Votre message a été transmis avec succès ! Sami vous recontactera rapidement.</span>
+              <span>Votre client email s'est ouvert ! Envoyez le message pré-rempli à Sami.</span>
                 </div>
               )}
 

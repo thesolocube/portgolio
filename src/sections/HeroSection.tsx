@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Mail, Linkedin, Github, Cpu, Database, Zap, Sparkles, Activity, CheckCircle2, Server, Layers } from 'lucide-react';
+import { ArrowRight, Download, Mail, Linkedin, Github, Cpu, Database, Zap, Sparkles, Activity, CheckCircle2, Server, Layers, ChevronDown } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { ArchitectureCanvas } from '../components/visual/ArchitectureCanvas';
 
@@ -8,8 +8,29 @@ interface HeroSectionProps {
   onOpenCV: () => void;
 }
 
+const ROTATING_ROLES = [
+  'Full-Stack Developer',
+  'Microservices Architect',
+  'Data & AI Engineer',
+  'Event-Driven Systems',
+  'Software Engineer',
+];
+
 export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCV }) => {
   const [activeTab, setActiveTab] = useState<'blueprint' | 'telemetry'>('blueprint');
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [fadeRole, setFadeRole] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFadeRole(false);
+      setTimeout(() => {
+        setRoleIndex((prev) => (prev + 1) % ROTATING_ROLES.length);
+        setFadeRole(true);
+      }, 300);
+    }, 2800);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section
@@ -54,8 +75,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCV }) => {
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-100 leading-[1.1]">
                 {PERSONAL_INFO.name}
               </h1>
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-brand-blue to-indigo-400 font-mono pt-1">
-                Architecting Scalable Systems & AI
+              {/* Rotating role typewriter */}
+              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold font-mono pt-1 h-12 flex items-center">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-brand-blue to-indigo-400">
+                  {'> '}
+                </span>
+                <span
+                  className={`text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-brand-blue to-indigo-400 transition-opacity duration-300 ${
+                    fadeRole ? 'opacity-100' : 'opacity-0'
+                  }`}
+                >
+                  {ROTATING_ROLES[roleIndex]}
+                </span>
+                <span className="w-0.5 h-8 bg-sky-400 ml-1 animate-pulse" />
               </div>
             </div>
 
@@ -290,6 +322,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCV }) => {
           </motion.div>
         </div>
       </div>
+
+      {/* Scroll Down Indicator */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.5, duration: 0.6 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-slate-500 z-10"
+      >
+        <span className="text-[10px] font-mono uppercase tracking-widest">Scroll</span>
+        <ChevronDown className="w-4 h-4 animate-bounce" />
+      </motion.div>
     </section>
   );
 };

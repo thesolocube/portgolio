@@ -26,13 +26,14 @@ export const ArchitectureCanvas: React.FC = () => {
     if (!ctx) return;
 
     let animationFrameId: number;
+    let pulseInterval: ReturnType<typeof setInterval>;
 
     const resize = () => {
       canvas.width = canvas.parentElement?.clientWidth || window.innerWidth;
       canvas.height = canvas.parentElement?.clientHeight || 600;
     };
     resize();
-    window.addEventListener('resize', resize);
+    window.addEventListener('resize', resize, { passive: true });
 
     // Node graph generation
     const nodeCount = Math.min(Math.floor(canvas.width / 45), 28);
@@ -80,7 +81,7 @@ export const ArchitectureCanvas: React.FC = () => {
       }
     };
 
-    let pulseInterval = setInterval(spawnPulse, 600);
+    pulseInterval = setInterval(spawnPulse, 600);
 
     const render = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);

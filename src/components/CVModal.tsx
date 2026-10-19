@@ -12,11 +12,15 @@ export const CVModal: React.FC<CVModalProps> = ({ isOpen, onClose }) => {
   const handleDownload = () => {
     const link = document.createElement('a');
     link.href = '/cvsamirahni1.pdf';
-    link.download = 'cvsamirahni1.pdf';
+    link.download = 'CV-Sami-Rahni.pdf';
     link.target = '_blank';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  };
+
+  const handlePreview = () => {
+    window.open('/cvsamirahni1.pdf', '_blank');
   };
 
   return (
@@ -53,6 +57,12 @@ export const CVModal: React.FC<CVModalProps> = ({ isOpen, onClose }) => {
 
               <div className="flex items-center gap-2">
                 <button
+                  onClick={handlePreview}
+                  className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-sky-300 font-semibold text-xs transition active:scale-95 border border-slate-700"
+                >
+                  <FileText className="w-3.5 h-3.5" /> Voir le PDF
+                </button>
+                <button
                   onClick={handleDownload}
                   className="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-sky-500 text-slate-950 hover:bg-sky-400 font-semibold text-xs transition active:scale-95 shadow-md shadow-sky-500/20"
                 >
@@ -61,6 +71,7 @@ export const CVModal: React.FC<CVModalProps> = ({ isOpen, onClose }) => {
                 <button
                   onClick={onClose}
                   className="p-1.5 rounded-lg bg-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-700 transition"
+                  aria-label="Fermer le modal CV"
                 >
                   <X className="w-5 h-5" />
                 </button>

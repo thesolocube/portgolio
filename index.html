@@ -4,30 +4,66 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090d16" />
     <title>Sami Rahni | Software Engineer & Full-Stack Developer</title>
-    <meta name="description" content="Portfolio of Sami Rahni, Software Engineering Student specializing in Full-Stack Development, Event-Driven Architecture, Microservices and Distributed Systems." />
-    <meta name="keywords" content="Sami Rahni, Software Engineer, Full-Stack Developer, Event-Driven Architecture, Microservices, Distributed Systems, Laravel, React, Node.js, RabbitMQ, Neo4j, Java, C++, Casablanca, Morocco" />
+    <meta name="description" content="Portfolio de Sami Rahni, ingénieur logiciel spécialisé en Full-Stack, architectures microservices, systèmes Event-Driven et Data & IA. Basé à Casablanca, Maroc." />
+    <meta name="keywords" content="Sami Rahni, Software Engineer, Full-Stack Developer, Event-Driven Architecture, Microservices, Distributed Systems, Laravel, React, Node.js, RabbitMQ, Neo4j, Java, Python, NLP, Machine Learning, Casablanca, Morocco, EMSI" />
     <meta name="author" content="Sami Rahni" />
+    <meta name="robots" content="index, follow" />
 
     <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://samirahni.dev/" />
     <meta property="og:title" content="Sami Rahni | Software Engineer & Full-Stack Developer" />
-    <meta property="og:description" content="Software Engineering Student & Full-Stack Developer specializing in scalable systems, Event-Driven Architecture and distributed applications." />
-    <meta property="og:image" content="https://samirahni.dev/og-image.png" />
+    <meta property="og:description" content="Ingénieur logiciel spécialisé en architectures distribuées, microservices, systèmes Event-Driven et Data & IA. EMSI — 5ème année." />
+    <meta property="og:image" content="/sami-portrait.jpg" />
+    <meta property="og:image:alt" content="Sami Rahni — Software Engineer" />
+    <meta property="og:locale" content="fr_MA" />
 
-    <!-- Twitter -->
+    <!-- Twitter Card -->
     <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://samirahni.dev/" />
     <meta property="twitter:title" content="Sami Rahni | Software Engineer & Full-Stack Developer" />
     <meta property="twitter:description" content="Building scalable software, event-driven systems and modern digital experiences." />
-    <meta property="twitter:image" content="https://samirahni.dev/og-image.png" />
+    <meta property="twitter:image" content="/sami-portrait.jpg" />
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts — preload for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Structured Data (JSON-LD) for Google rich results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Sami Rahni",
+      "jobTitle": "Software Engineer",
+      "description": "Élève ingénieur en informatique spécialisé en Full-Stack, microservices et Data & IA.",
+      "url": "https://samirahni.dev",
+      "email": "samirahni006@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Casablanca",
+        "addressCountry": "MA"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "EMSI — École Marocaine des Sciences de l'Ingénieur"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/sami-rahni-685a67266/",
+        "https://github.com/thesolocube"
+      ],
+      "knowsAbout": [
+        "Software Engineering", "Full-Stack Development", "Microservices",
+        "Event-Driven Architecture", "Machine Learning", "NLP", "React", "Laravel",
+        "Node.js", "RabbitMQ", "Neo4j", "Docker"
+      ]
+    }
+    </script>
   </head>
-  <body class="bg-[#090d16] text-slate-100 antialiased selection:bg-brand-blue selection:text-white dark:bg-[#090d16] dark:text-slate-100 light:bg-slate-50 light:text-slate-900 transition-colors duration-300 min-h-screen">
+  <body class="bg-[#090d16] text-slate-100 antialiased dark:bg-[#090d16] dark:text-slate-100 transition-colors duration-300 min-h-screen">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

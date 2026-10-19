@@ -10,6 +10,7 @@ const iconMap: Record<string, React.ElementType> = {
   Cpu,
   Database,
   Layers,
+  Sparkles,
 };
 
 export const SkillsSection: React.FC = () => {
