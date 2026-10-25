@@ -29,32 +29,32 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
 
       {/* Pill Badge */}
       <div
-        className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-sky-500/30 text-sky-400 text-xs font-mono font-semibold tracking-wider uppercase mb-4 shadow-lg shadow-sky-500/5 backdrop-blur-md ${
+        className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100/90 dark:bg-slate-900/80 border border-sky-500/30 text-sky-600 dark:text-sky-400 text-xs font-mono font-semibold tracking-wider uppercase mb-4 shadow-sm backdrop-blur-md ${
           centered ? 'mx-auto' : ''
         }`}
       >
         <span className="relative flex h-2 w-2">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75" />
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-400" />
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-500 dark:bg-sky-400 opacity-75" />
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-500 dark:bg-sky-400" />
         </span>
         <span>{badge}</span>
       </div>
 
       {/* Main Title */}
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-100 tracking-tight leading-tight">
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-slate-100 tracking-tight leading-tight">
         {title}
       </h2>
 
       {/* Gradient divider line */}
       <div
-        className={`mt-4 h-[2px] w-24 bg-gradient-to-r from-transparent via-sky-400 to-transparent ${
+        className={`mt-4 h-[2px] w-24 bg-gradient-to-r from-transparent via-sky-500 dark:via-sky-400 to-transparent ${
           centered ? 'mx-auto' : ''
         }`}
       />
 
       {/* Subtitle */}
       {subtitle && (
-        <p className="mt-4 text-base sm:text-lg text-slate-400 max-w-2xl mx-auto font-sans leading-relaxed">
+        <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto font-sans leading-relaxed">
           {subtitle}
         </p>
       )}

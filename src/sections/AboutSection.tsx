@@ -43,7 +43,7 @@ const cardTheme: Record<string, { accent: string; border: string; glow: string; 
 
 export const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="py-24 relative bg-[#060810] text-slate-100 overflow-hidden">
+    <section id="about" className="py-24 relative bg-white dark:bg-[#060810] text-slate-900 dark:text-slate-100 overflow-hidden">
       {/* Background patterns */}
       <div className="absolute inset-0 dot-grid opacity-30 pointer-events-none" />
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-sky-500/5 blur-[120px] rounded-full pointer-events-none" />

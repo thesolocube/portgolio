@@ -66,7 +66,7 @@ export const ProjectsSection: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="py-24 relative bg-[#060810] text-slate-100 overflow-hidden">
+    <section id="projects" className="py-24 relative bg-white dark:bg-[#060810] text-slate-900 dark:text-slate-100 overflow-hidden">
       {/* Background accents */}
       <div className="absolute inset-0 dot-grid opacity-30 pointer-events-none" />
       <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-sky-500/5 blur-[140px] rounded-full pointer-events-none" />

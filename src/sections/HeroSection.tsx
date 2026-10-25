@@ -103,20 +103,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCV }) => {
     <section
       id="hero"
       onMouseMove={handleMouseMove}
-      className="relative min-h-screen flex items-center justify-center pt-28 pb-20 overflow-hidden bg-[#060810]"
+      className="relative min-h-screen flex items-center justify-center pt-28 pb-20 overflow-hidden bg-slate-50 dark:bg-[#060810]"
     >
       {/* Layered backgrounds */}
       <div className="absolute inset-0 dot-grid opacity-50" />
-      <div className="absolute inset-0 bg-gradient-to-br from-sky-950/20 via-transparent to-indigo-950/20" />
+      <div className="absolute inset-0 bg-gradient-to-br from-sky-500/5 dark:from-sky-950/20 via-transparent to-indigo-500/5 dark:to-indigo-950/20" />
 
       {/* Animated background orbs */}
       <motion.div
         style={{ x: springX, y: springY }}
-        className="absolute top-1/4 right-1/4 w-[600px] h-[600px] rounded-full bg-sky-600/5 blur-[120px] pointer-events-none"
+        className="absolute top-1/4 right-1/4 w-[600px] h-[600px] rounded-full bg-sky-500/10 dark:bg-sky-600/5 blur-[120px] pointer-events-none"
       />
       <motion.div
         style={{ x: springX, y: springY }}
-        className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-indigo-600/5 blur-[100px] pointer-events-none"
+        className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] rounded-full bg-indigo-500/10 dark:bg-indigo-600/5 blur-[100px] pointer-events-none"
       />
 
       {/* Interactive Architecture Canvas */}
@@ -127,12 +127,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCV }) => {
         <img
           src="/sami-portrait.jpg"
           alt="Sami Rahni Software Engineer"
-          className="h-[88%] max-h-[780px] object-contain object-bottom opacity-[0.22] filter drop-shadow-[0_0_60px_rgba(56,189,248,0.2)] [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)]"
+          className="h-[88%] max-h-[780px] object-contain object-bottom opacity-[0.14] dark:opacity-[0.22] filter drop-shadow-[0_0_60px_rgba(56,189,248,0.2)] [mask-image:linear-gradient(to_bottom,black_60%,transparent_100%)]"
         />
       </div>
 
       {/* Bottom fade */}
-      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#060810] to-transparent pointer-events-none z-10" />
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-50 dark:from-[#060810] to-transparent pointer-events-none z-10" />
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">

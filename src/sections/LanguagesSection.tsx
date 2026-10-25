@@ -5,7 +5,7 @@ import { LANGUAGES } from '../data/portfolioData';
 
 export const LanguagesSection: React.FC = () => {
   return (
-    <section id="languages" className="py-20 relative bg-[#060810] text-slate-100 border-t border-b border-slate-800/80 overflow-hidden">
+    <section id="languages" className="py-20 relative bg-white dark:bg-[#060810] text-slate-900 dark:text-slate-100 border-t border-b border-slate-200 dark:border-slate-800/80 overflow-hidden">
       {/* Background accents */}
       <div className="absolute inset-0 dot-grid opacity-20 pointer-events-none" />
 

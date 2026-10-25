@@ -4,7 +4,7 @@ import { PERSONAL_INFO } from '../data/portfolioData';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="relative bg-[#04060b] text-slate-400 border-t border-slate-800/80 pt-16 pb-12 overflow-hidden">
+    <footer className="relative bg-slate-100 dark:bg-[#04060b] text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800/80 pt-16 pb-12 overflow-hidden">
       {/* Glow highlight line */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-sky-500/50 to-transparent" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-sky-500/5 blur-[140px] rounded-full pointer-events-none" />

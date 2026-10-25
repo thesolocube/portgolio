@@ -69,7 +69,7 @@ export const SkillsSection: React.FC = () => {
   }).filter(Boolean) as typeof SKILL_CATEGORIES;
 
   return (
-    <section id="skills" className="py-24 relative bg-[#060810] text-slate-100 overflow-hidden">
+    <section id="skills" className="py-24 relative bg-slate-50 dark:bg-[#060810] text-slate-900 dark:text-slate-100 overflow-hidden">
       {/* Background accents */}
       <div className="absolute inset-0 dot-grid opacity-30 pointer-events-none" />
       <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none" />

@@ -6,7 +6,7 @@ import { EDUCATION } from '../data/portfolioData';
 
 export const EducationSection: React.FC = () => {
   return (
-    <section id="education" className="py-24 relative bg-[#060810] text-slate-100 overflow-hidden">
+    <section id="education" className="py-24 relative bg-white dark:bg-[#060810] text-slate-900 dark:text-slate-100 overflow-hidden">
       {/* Background accents */}
       <div className="absolute inset-0 dot-grid opacity-30 pointer-events-none" />
       <div className="absolute top-1/3 left-1/3 w-80 h-80 bg-sky-500/5 blur-[120px] rounded-full pointer-events-none" />

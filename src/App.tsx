@@ -7,6 +7,7 @@ import { Footer } from './components/Footer';
 import { BackToTop } from './components/BackToTop';
 import { CommandPalette } from './components/CommandPalette';
 import { CVModal } from './components/CVModal';
+import { Analytics } from '@vercel/analytics/react';
 
 import { HeroSection } from './sections/HeroSection';
 import { AboutSection } from './sections/AboutSection';
@@ -23,7 +24,7 @@ export const AppContent: React.FC = () => {
   const [isCVOpen, setIsCVOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#060810] dark:bg-[#060810] light:bg-slate-50 text-slate-100 dark:text-slate-100 light:text-slate-900 transition-colors duration-300 relative selection:bg-sky-500 selection:text-slate-950 font-sans">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#060810] text-slate-900 dark:text-slate-100 transition-colors duration-300 relative selection:bg-sky-500 selection:text-slate-950 font-sans">
       {/* Top Scroll Progress Bar */}
       <ScrollProgress />
 
@@ -80,6 +81,7 @@ export function App() {
   return (
     <ThemeProvider>
       <AppContent />
+      <Analytics />
     </ThemeProvider>
   );
 }
