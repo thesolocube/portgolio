@@ -281,6 +281,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       { name: "PHP", highlight: true },
       { name: "C++", highlight: true },
       { name: "C#", highlight: true },
+      { name: "SAP ABAP", highlight: true },
       { name: "HTML5" },
       { name: "CSS3" },
     ],
@@ -415,6 +416,13 @@ export const CERTIFICATIONS: Certification[] = [
     institution: "University of Michigan",
     title: "Interactivity with JavaScript",
     score: "94.26%",
+  },
+  {
+    id: "board-infinity-sap-abap",
+    institution: "Board Infinity",
+    title: "Learn SAP ABAP Fundamentals and Core Programming Concepts",
+    score: "Verified",
+    credentialUrl: "https://coursera.org/verify/AONSIXI2B5PJ",
   },
   {
     id: "learnquest-angular",

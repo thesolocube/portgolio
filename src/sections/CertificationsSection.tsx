@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, CheckCircle, ShieldCheck, Sparkles } from 'lucide-react';
+import { Award, CheckCircle, ShieldCheck, Sparkles, ExternalLink } from 'lucide-react';
 import { SectionHeader } from '../components/SectionHeader';
 import { CERTIFICATIONS } from '../data/portfolioData';
 
@@ -47,6 +47,13 @@ const institutionStyles: Record<string, { border: string; bg: string; badge: str
     text: 'text-emerald-400',
     glow: 'from-emerald-500/15 to-transparent',
   },
+  'Board Infinity': {
+    border: 'hover:border-teal-500/50',
+    bg: 'bg-teal-500/10',
+    badge: 'bg-teal-500/15 text-teal-400 border-teal-500/30',
+    text: 'text-teal-400',
+    glow: 'from-teal-500/15 to-transparent',
+  },
 };
 
 export const CertificationsSection: React.FC = () => {
@@ -60,14 +67,14 @@ export const CertificationsSection: React.FC = () => {
         <SectionHeader
           badge="Verified Credentials"
           title="Certifications & Accréditations"
-          subtitle="Certifications internationales de haut niveau délivrées par des universités et entreprises majeures (Meta, EPFL, Johns Hopkins, HKUST, Univ of Michigan)."
+          subtitle="Certifications internationales de haut niveau délivrées par des universités et entreprises majeures (Meta, EPFL, Johns Hopkins, HKUST, Univ of Michigan, Board Infinity)."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {CERTIFICATIONS.map((cert, index) => {
             const style = institutionStyles[cert.institution] || institutionStyles.Meta;
             const scoreNum = parseFloat(cert.score.replace('%', ''));
-            const isHighScore = scoreNum >= 90;
+            const isHighScore = !isNaN(scoreNum) && scoreNum >= 90;
 
             return (
               <motion.div
@@ -110,10 +117,23 @@ export const CertificationsSection: React.FC = () => {
 
                 {/* Footer verification */}
                 <div className="relative z-10 mt-6 pt-4 border-t border-slate-800/60 flex items-center justify-between text-xs font-mono text-slate-400">
-                  <span className="flex items-center gap-1.5">
-                    <ShieldCheck className={`w-4 h-4 ${style.text}`} />
-                    <span>Verified Credential</span>
-                  </span>
+                  {cert.credentialUrl ? (
+                    <a
+                      href={cert.credentialUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center gap-1.5 hover:text-sky-400 transition-colors group/link"
+                    >
+                      <ShieldCheck className={`w-4 h-4 ${style.text}`} />
+                      <span>Verified Credential</span>
+                      <ExternalLink className="w-3 h-3 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                    </a>
+                  ) : (
+                    <span className="flex items-center gap-1.5">
+                      <ShieldCheck className={`w-4 h-4 ${style.text}`} />
+                      <span>Verified Credential</span>
+                    </span>
+                  )}
                   <span className="text-[10px] text-slate-500 flex items-center gap-1">
                     <Award className="w-3.5 h-3.5" /> Official
                   </span>
