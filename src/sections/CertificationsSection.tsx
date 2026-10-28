@@ -54,6 +54,13 @@ const institutionStyles: Record<string, { border: string; bg: string; badge: str
     text: 'text-teal-400',
     glow: 'from-teal-500/15 to-transparent',
   },
+  IBM: {
+    border: 'hover:border-blue-600/50',
+    bg: 'bg-blue-600/10',
+    badge: 'bg-blue-600/15 text-blue-500 dark:text-blue-400 border-blue-600/30 font-bold',
+    text: 'text-blue-500 dark:text-blue-400',
+    glow: 'from-blue-600/15 to-transparent',
+  },
 };
 
 export const CertificationsSection: React.FC = () => {
@@ -67,7 +74,7 @@ export const CertificationsSection: React.FC = () => {
         <SectionHeader
           badge="Verified Credentials"
           title="Certifications & Accréditations"
-          subtitle="Certifications internationales de haut niveau délivrées par des universités et entreprises majeures (Meta, EPFL, Johns Hopkins, HKUST, Univ of Michigan, Board Infinity)."
+          subtitle="Certifications internationales de haut niveau délivrées par des entreprises et universités majeures (IBM, Meta, EPFL, Johns Hopkins, HKUST, Univ of Michigan, Board Infinity)."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

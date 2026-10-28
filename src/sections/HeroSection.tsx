@@ -23,7 +23,7 @@ const ROTATING_ROLES = [
 const STATS = [
   { value: 8, label: 'Projets Réalisés', suffix: '+', icon: GitBranch },
   { value: 2, label: 'Stages Effectués', suffix: '', icon: Cpu },
-  { value: 8, label: 'Certifications', suffix: '', icon: CheckCircle2 },
+  { value: 9, label: 'Certifications', suffix: '', icon: CheckCircle2 },
   { value: 15, label: 'Technologies Maîtrisées', suffix: '+', icon: Code2 },
 ];
 

@@ -320,6 +320,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     title: "Architecture & DevOps",
     iconName: "Cpu",
     skills: [
+      { name: "DevOps & CI/CD", highlight: true },
       { name: "Microservices", highlight: true },
       { name: "Event-Driven Architecture", highlight: true },
       { name: "RabbitMQ", highlight: true },
@@ -423,6 +424,13 @@ export const CERTIFICATIONS: Certification[] = [
     title: "Learn SAP ABAP Fundamentals and Core Programming Concepts",
     score: "Verified",
     credentialUrl: "https://coursera.org/verify/AONSIXI2B5PJ",
+  },
+  {
+    id: "ibm-intro-to-devops",
+    institution: "IBM",
+    title: "Introduction to DevOps",
+    score: "84%",
+    credentialUrl: "https://www.coursera.org/learn/intro-to-devops",
   },
   {
     id: "learnquest-angular",
