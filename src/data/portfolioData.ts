@@ -2,10 +2,10 @@ import { Experience, Project, SkillCategory, Certification, EducationItem, Langu
 
 export const PERSONAL_INFO = {
   name: "Sami Rahni",
-  role: "Software Engineer | Data & AI | Full-Stack & Microservices",
+  role: "Software Engineer | 2DSI — Développement Digital & Systèmes d'Information",
   tagline: "Architecting Data & AI pipelines, microservices, event-driven systems and modern full-stack platforms.",
   heroText: "Je conçois des applications web et systèmes distribués modernes en combinant ingénierie Full-Stack, architectures microservices, pipelines Data & IA et traitements orientés événements.",
-  aboutText: "Je suis élève ingénieur en informatique passionné par la Data & l'IA, le développement Full-Stack et les architectures microservices distribuées. Mon expertise s'étend de la conception d'APIs robustes et d'interfaces réactives à l'intégration de modèles de Machine Learning / NLP, de pipelines de données, de courtiers de messages (RabbitMQ/EDA) et au déploiement sur infrastructures virtualisées.",
+  aboutText: "Je suis élève ingénieur en 5ème année à l'EMSI en filière 2DSI (Développement Digital et Systèmes d'Information), passionné par le développement Full-Stack, les architectures microservices distribuées et la Data/IA. Mon expertise s'étend de la conception d'APIs robustes et d'interfaces réactives à l'intégration de modèles de Machine Learning / NLP, de pipelines de données, de courtiers de messages (RabbitMQ/EDA) et au déploiement sur infrastructures virtualisées.",
   contactEmail: "samirahni006@gmail.com",
   linkedinUrl: "https://www.linkedin.com/in/sami-rahni-685a67266/",
   githubUrl: "https://github.com/thesolocube",
@@ -17,8 +17,8 @@ export const ABOUT_CARDS = [
     id: "emsi",
     icon: "GraduationCap",
     title: "EMSI",
-    subtitle: "Cycle Ingénierie Informatique & Réseaux",
-    description: "Formation d'excellence axée sur le génie logiciel, la modélisation d'architectures et la gestion des réseaux d'entreprise.",
+    subtitle: "2DSI — Dév. Digital & Systèmes d'Information",
+    description: "Cycle d'Ingénierie d'État en Développement Digital & Systèmes d'Information (2DSI). Conception logicielle, architectures distribuées et SI d'entreprise.",
   },
   {
     id: "fullstack-microservices",
@@ -363,9 +363,9 @@ export const EDUCATION: EducationItem[] = [
   {
     id: "emsi",
     institution: "EMSI (École Marocaine des Sciences de l'Ingénieur)",
-    degree: "Diplôme d'Ingénieur d’État — Ingénierie Informatique & Réseaux",
+    degree: "Diplôme d'Ingénieur d’État — Développement Digital & Systèmes d'Information (2DSI)",
     period: "2022 – Present",
-    currentStatus: "Actuellement : 5ème année – Master 1",
+    currentStatus: "Actuellement : 5ème année — Option 2DSI (Développement Digital & Systèmes d'Information)",
   },
   {
     id: "fs-eljadida",

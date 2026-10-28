@@ -15,6 +15,7 @@ interface HeroSectionProps {
 const ROTATING_ROLES = [
   'Full-Stack Developer',
   'Microservices Architect',
+  '2DSI Software Engineer',
   'Data & AI Engineer',
   'Event-Driven Systems',
   'Software Engineer',
@@ -402,7 +403,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenCV }) => {
                   <Layers className="w-3 h-3 text-sky-400" />
                   <span className="text-slate-300">5th Year · EMSI Casablanca</span>
                 </span>
-                <span className="text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/20 font-bold">Master 1</span>
+                <span className="text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/20 font-bold">Option 2DSI</span>
               </div>
             </div>
           </motion.div>

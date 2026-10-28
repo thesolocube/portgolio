@@ -136,7 +136,7 @@ export const AboutSection: React.FC = () => {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-500 font-mono">Filière:</span>
-                  <span className="font-semibold text-slate-200">Informatique & Réseaux</span>
+                  <span className="font-semibold text-sky-400 font-mono">2DSI (Dév. Digital & SI)</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-500 font-mono">Promotion:</span>
